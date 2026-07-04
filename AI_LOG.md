@@ -16,7 +16,7 @@ This document provides a transparent look behind the curtain at how AI tools wer
 
 ### Backend Development
 
-**Prompt pattern:** I described the core requirements — FastAPI with async SQLAlchemy, APScheduler background jobs, httpx for health checks — and had the AI generate the full backend structure.
+**Prompt pattern:** I described the core requirements - FastAPI with async SQLAlchemy, APScheduler background jobs, httpx for health checks - and had the AI generate the full backend structure.
 
 **Key prompts that shaped the backend:**
 
