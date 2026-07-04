@@ -364,7 +364,9 @@ resource "aws_security_group" "web" {
 
 ## 📸 Screenshots
 
-> Screenshots will be populated after running the application.
+<img width="1885" height="958" alt="image" src="https://github.com/user-attachments/assets/669daf5e-9772-41e7-861d-9e18059eeb1f" />
+<img width="1857" height="832" alt="image" src="https://github.com/user-attachments/assets/edbfa658-8b92-402d-8c86-8648f252c42c" />
+
 
 - **Dashboard** — Stats cards and URL monitoring table
 - **Health Panel** — Slide-out history with sparkline
