@@ -1,0 +1,37 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../Dockerfile.backend
+    container_name: uptime-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - sqlite_data:/app/data
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./data/uptime.db
+      - CHECK_INTERVAL_SECONDS=60
+      - REQUEST_TIMEOUT_SECONDS=10
+      - CORS_ORIGINS=["http://localhost:3000"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../Dockerfile.frontend
+    container_name: uptime-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  sqlite_data:
+    driver: local
